@@ -11,6 +11,8 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.example.oatsv5.Models.LoginGuestResult;
+
 import java.util.HashMap;
 
 import retrofit2.Call;
@@ -51,9 +53,32 @@ public class AuthActivity extends AppCompatActivity {
         findViewById(R.id.btnRegGuest).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                handleRegDialog();
+                handleRegGuestDialog();
             }
         });
+
+        findViewById(R.id.btnLogStudent).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                handleLoginStudentDialog();
+            }
+        });
+        findViewById(R.id.btnRegStudent).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                handleRegStudentDialog();
+            }
+        });
+
+
+
+    }
+
+    private void handleRegStudentDialog() {
+        
+    }
+
+    private void handleLoginStudentDialog() {
 
     }
 
@@ -86,7 +111,7 @@ public class AuthActivity extends AppCompatActivity {
                             builder1.show();
                             Toast.makeText(AuthActivity.this,"Logged in  Successfully !", Toast.LENGTH_LONG).show();
 
-                            startActivity( new Intent(AuthActivity.this,ThesesViewActivity.class));
+                            startActivity( new Intent(AuthActivity.this,DashboardActivity.class));
                             finish();
                         } else if (response.code() == 500) {
                             Toast.makeText(AuthActivity.this,"Wrong Credentials!", Toast.LENGTH_LONG).show();
@@ -103,7 +128,7 @@ public class AuthActivity extends AppCompatActivity {
         });
     }
 
-    private void handleRegDialog() {
+    private void handleRegGuestDialog() {
         View view = getLayoutInflater().inflate(R.layout.register_guest_dialog, null);
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setView(view).show();

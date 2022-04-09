@@ -1,7 +1,10 @@
 package com.example.oatsv5;
 
+import com.example.oatsv5.Models.LoginGuestResult;
+import com.example.oatsv5.Models.LoginUserResult;
+import com.example.oatsv5.Models.ThesisJSONResponse;
+
 import java.util.HashMap;
-import java.util.List;
 
 import retrofit2.Call;
 import retrofit2.http.Body;
@@ -17,6 +20,17 @@ public interface RetrofitInterface {
 
 
 //ThesisView
-    @GET("/items/get")
-    Call<List<ThesesResult>> getThesesResult();
+//    @GET("/api/thesis")
+//    Call<List<ThesesResult>> getTheses();
+
+    @GET("/api/thesis")
+    Call<ThesisJSONResponse> getThesesResult();
+
+
+    @POST("guest/login")
+    Call<LoginUserResult> executeLoginUser(@Body HashMap<String, String> map);
+
+    @POST("guest/register")
+    Call<Void> executeRegisterUser (@Body HashMap<String, String> map);
+
 }

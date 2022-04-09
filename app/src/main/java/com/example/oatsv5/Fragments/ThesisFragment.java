@@ -1,26 +1,28 @@
-package com.example.oatsv5;
+package com.example.oatsv5.Fragments;
 
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
-
-import android.app.Activity;
-import android.content.Intent;
 import android.os.Bundle;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
+import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
 
 import com.example.oatsv5.Adapters.ThesisRecyclerAdapter;
 import com.example.oatsv5.Models.ThesesResult;
 import com.example.oatsv5.Models.ThesisJSONResponse;
+import com.example.oatsv5.R;
+import com.example.oatsv5.RetrofitInterface;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -28,33 +30,58 @@ import retrofit2.Response;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
-public class ThesisActivity extends AppCompatActivity {
 
+public class ThesisFragment extends Fragment {
     private FloatingActionButton fab1;
     private Button button;
     private RecyclerView recyclerView;
-
-    List<ThesesResult>thesisList;
-    private TextView thesisFileResult ;
+    private View view;
+    private SwipeRefreshLayout refreshLayout;
+    List<ThesesResult> thesisList;
+    private TextView thesisFileResult;
     private String BASE_URL = "http://192.168.100.141:8000/";
 
+
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_thesis);
+    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+                             Bundle savedInstanceState) {
+        // Inflate the layout for this fragment
+        view = inflater.inflate(R.layout.fragment_thesis, container, false);
+
+        recyclerView = view.findViewById(R.id.thesisRecyclerView);
 
 
-        getSupportActionBar().hide();
+        init();
+        return view;
+
+    }
 
 
+    public void init(){
+            recyclerView = view.findViewById(R.id.thesisRecyclerView);
+            recyclerView.setHasFixedSize(true);
+            recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
+            refreshLayout = view.findViewById(R.id.swipeThesis);
+
+        thesisList();
+
+        refreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+            @Override
+            public void onRefresh() {
+                thesisList();
+            }
+        });
 
 
+//            refreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+//                @Override
+//                public void onRefresh() {
+//                    getActivity();
+//                }
+//            });
+        }
 
-
-//        thesisFileResult = findViewById(R.id.thesis_file_result);
-
-        recyclerView = findViewById(R.id.thesisRecyclerView);
-        thesisList = new ArrayList<>();
+    private void thesisList() {
 
 
         //setting up the retrofit
@@ -84,8 +111,9 @@ public class ThesisActivity extends AppCompatActivity {
 
             }
         });
-    }
-//        call.enqueue(new Callback<List<ThesesResult>>() {
+
+
+        //        call.enqueue(new Callback<List<ThesesResult>>() {
 //
 //
 //            @Override
@@ -121,10 +149,15 @@ public class ThesisActivity extends AppCompatActivity {
 //            }
 //        });
 //        }
-    private void PutDataIntoRecyclerView(List<ThesesResult> thesisList) {
 
-        ThesisRecyclerAdapter thesisRecyclerAdapter = new ThesisRecyclerAdapter(this, thesisList);
-        recyclerView.setLayoutManager(new LinearLayoutManager(this));
-        recyclerView.setAdapter(thesisRecyclerAdapter);
     }
-}
+        private void PutDataIntoRecyclerView (List < ThesesResult > thesisList) {
+
+            ThesisRecyclerAdapter thesisRecyclerAdapter = new ThesisRecyclerAdapter(getContext(), thesisList);
+            recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
+            recyclerView.setAdapter(thesisRecyclerAdapter);
+        }
+
+
+    }
+

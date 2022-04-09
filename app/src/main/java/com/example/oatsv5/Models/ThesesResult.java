@@ -9,7 +9,7 @@ import java.util.ArrayList;
 public class ThesesResult  {
 
 
-
+private  String id;
     private String title;
 
     @SerializedName("publishedAt")
@@ -107,9 +107,9 @@ public class ThesesResult  {
     @SerializedName("image")
     private String base64;
 
-
-
-
+    public String getId() {
+        return id;
+    }
 
     public String getBase64() {
         return base64;

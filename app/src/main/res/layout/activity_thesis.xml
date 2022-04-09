@@ -4,15 +4,23 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:padding="5dp"
+    android:id="@+id/activity_thesis"
+    android:background="@drawable/gradient_drawable"
     tools:context=".ThesisActivity">
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/thesisRecyclerView"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        />
 
-<!--    <androidx.core.widget.NestedScrollView-->
+<!--    <androidx.recyclerview.widget.RecyclerView-->
+<!--        android:id="@+id/thesisRecyclerView"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="match_parent"-->
+<!--        android:padding="15dp"-->
+<!--        tools:layout_editor_absoluteX="-152dp"-->
+<!--        tools:layout_editor_absoluteY="117dp" />-->
+
+
+
+    <!--    <androidx.core.widget.NestedScrollView-->
 <!--        android:layout_width="match_parent"-->
 <!--        android:layout_height="match_parent">-->
 <!--    <TextView-->

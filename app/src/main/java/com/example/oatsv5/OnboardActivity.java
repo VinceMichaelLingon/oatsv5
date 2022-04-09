@@ -12,7 +12,6 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.example.oatsv5.Adapters.ViewPagerAdapter;
-import com.google.android.material.resources.TextAppearance;
 
 public class OnboardActivity extends AppCompatActivity {
 
@@ -46,7 +45,7 @@ public class OnboardActivity extends AppCompatActivity {
                 viewPager.setCurrentItem(viewPager.getCurrentItem()+1);
             }
             else{
-                startActivity(new Intent(OnboardActivity.this,AuthActivity.class));
+                startActivity(new Intent(OnboardActivity.this, AuthActivity.class));
                 finish();
             }
             });

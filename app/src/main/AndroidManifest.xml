@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    package="com.example.oatsv5">
+    package="com.example.oatsv5" >
 
     <uses-permission android:name="android.permission.INTERNET" />
 
@@ -12,10 +12,15 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Oatsv5"
-        android:usesCleartextTraffic="true">
+        android:usesCleartextTraffic="true" >
         <activity
-            android:name=".ThesesViewActivity"
-            android:exported="true"></activity>
+            android:name=".DashboardActivity"
+            android:exported="true"
+            android:theme="@style/AppTheme.NoActionBar"/>
+        <activity
+            android:name=".ThesisActivity"
+            android:exported="true"
+            />
         <activity
             android:name=".OnboardActivity"
             android:exported="true" />
@@ -24,7 +29,8 @@
             android:exported="true" />
         <activity
             android:name=".MainActivity"
-            android:exported="true">
+            android:exported="true"
+            >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

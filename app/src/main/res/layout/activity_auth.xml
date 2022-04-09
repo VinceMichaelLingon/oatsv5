@@ -21,7 +21,7 @@
 
 
     <Button
-        android:id="@+id/btnStudent"
+        android:id="@+id/btnLogStudent"
         android:layout_width="143dp"
         android:layout_height="96dp"
 

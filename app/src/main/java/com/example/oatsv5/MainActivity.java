@@ -27,24 +27,28 @@ public class MainActivity extends AppCompatActivity {
                 }, 1500);
     }
 
-        private void isFirstTime() {
-        //for checking if the app is running for the very first time
-            SharedPreferences preferences = getApplication().getSharedPreferences("onBoard", Context.MODE_PRIVATE);
-            boolean isFirstTime = preferences.getBoolean("isFirstTime",true);
+    private void isFirstTime() {
+        //para sa onboard design pwede din to sa remember me function
+        SharedPreferences preferences = getApplication().getSharedPreferences("onBoard", Context.MODE_PRIVATE);
+        boolean isFirstTime = preferences.getBoolean("isFirstTime", true);
 
-            if(isFirstTime) {
-                SharedPreferences.Editor editor = preferences.edit();
-                editor.putBoolean("isFirstTime", true);
-                editor.apply();
+        if (isFirstTime) {
+            SharedPreferences.Editor editor = preferences.edit();
+            editor.putBoolean("isFirstTime", false);
+            editor.apply();
 
-                startActivity( new Intent(MainActivity.this,OnboardActivity.class));
-                finish();
-            }
+            startActivity(new Intent(MainActivity.this, OnboardActivity.class));
+            finish();
+        } else {
+//            startActivity(new Intent(MainActivity.this,Dashboard.class));
+//            finish();
+//           Intent intent = new Intent(this, MainActivity.class);
 
-            else{
-                startActivity(new Intent(MainActivity.this,AuthActivity.class));
-                finish();
-            }
+            Intent home = new Intent(getApplicationContext(),DashboardActivity.class);
+            startActivity(home);
+            finish();
+
         }
+    };
 
 }
