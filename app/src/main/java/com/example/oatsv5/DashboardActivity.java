@@ -14,9 +14,14 @@ import android.view.MenuItem;
 import android.widget.Toast;
 
 import com.example.oatsv5.Fragments.ThesisFragment;
+import com.example.oatsv5.Models.LoginGuestResult;
 import com.google.android.material.navigation.NavigationView;
 
 import org.jetbrains.annotations.NotNull;
+
+import retrofit2.Call;
+import retrofit2.Retrofit;
+import retrofit2.converter.gson.GsonConverterFactory;
 
 public class DashboardActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener{
 
@@ -28,6 +33,10 @@ public class DashboardActivity extends AppCompatActivity implements NavigationVi
     private FragmentManager fragmentManager;
     private FragmentTransaction fragmentTransaction;
 
+
+    private Retrofit retrofit;
+    private RetrofitInterface retrofitInterface;
+    private String BASE_URL = "http://192.168.100.141:8000/";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,7 +56,14 @@ public class DashboardActivity extends AppCompatActivity implements NavigationVi
                 actionBarDrawerToggle.syncState();
 
 
-
+//        retrofit = new Retrofit.Builder()
+//                .baseUrl(BASE_URL)
+//                .addConverterFactory(GsonConverterFactory.create())
+//                .build();
+//
+//        retrofitInterface = retrofit.create(RetrofitInterface.class);
+//
+//        Call<LoginGuestResult> call =retrofitInterface.executeLogin(map);
 
     }
 

@@ -1,12 +1,30 @@
 package com.example.oatsv5.Models;
 
+import com.example.oatsv5.Models.Departments.Departments;
+import com.google.gson.annotations.SerializedName;
+
 public class LoginUserResult {
 
     private String email;
 
 
     private String password;
-    private String departments;
+
+    @SerializedName("department")
+    private Departments departments;
+
+    public Departments getDepartments() {
+        return departments;
+    }
+
+    public void setDepartments(Departments departments) {
+        this.departments = departments;
+    }
+
+    public LoginUserResult(Departments departments) {
+        this.departments = departments;
+    }
+
     private String courses;
 
     public String getEmail() {
@@ -17,17 +35,13 @@ public class LoginUserResult {
         return password;
     }
 
-    public String getDepartments() {
-        return departments;
-    }
+
 
     public String getCourses() {
         return courses;
     }
 
-    public void setDepartments(String departments) {
-        this.departments = departments;
-    }
+
 
     public void setCourses(String courses) {
         this.courses = courses;

@@ -18,6 +18,7 @@
         <entry key="..\:/Users/Vince/AndroidStudioProjects/oatsv5/app/src/main/res/layout/activity_theses_view.xml" value="0.15217391304347827" />
         <entry key="..\:/Users/Vince/AndroidStudioProjects/oatsv5/app/src/main/res/layout/activity_thesis.xml" value="0.12685185185185185" />
         <entry key="..\:/Users/Vince/AndroidStudioProjects/oatsv5/app/src/main/res/layout/activity_thesis_details.xml" value="0.20742753623188406" />
+        <entry key="..\:/Users/Vince/AndroidStudioProjects/oatsv5/app/src/main/res/layout/citation_dialog.xml" value="0.33" />
         <entry key="..\:/Users/Vince/AndroidStudioProjects/oatsv5/app/src/main/res/layout/content_dasshboard.xml" value="0.1933876811594203" />
         <entry key="..\:/Users/Vince/AndroidStudioProjects/oatsv5/app/src/main/res/layout/content_main.xml" value="0.1933876811594203" />
         <entry key="..\:/Users/Vince/AndroidStudioProjects/oatsv5/app/src/main/res/layout/drawer_header.xml" value="0.33" />
@@ -27,8 +28,9 @@
         <entry key="..\:/Users/Vince/AndroidStudioProjects/oatsv5/app/src/main/res/layout/fragment_thesis.xml" value="0.33" />
         <entry key="..\:/Users/Vince/AndroidStudioProjects/oatsv5/app/src/main/res/layout/login_guest_dialog.xml" value="0.14270833333333333" />
         <entry key="..\:/Users/Vince/AndroidStudioProjects/oatsv5/app/src/main/res/layout/register_guest_dialog.xml" value="0.16304347826086957" />
-        <entry key="..\:/Users/Vince/AndroidStudioProjects/oatsv5/app/src/main/res/layout/thesis_dialog_details.xml" value="0.22" />
-        <entry key="..\:/Users/Vince/AndroidStudioProjects/oatsv5/app/src/main/res/layout/thesis_files.xml" value="0.22" />
+        <entry key="..\:/Users/Vince/AndroidStudioProjects/oatsv5/app/src/main/res/layout/register_user_dialog.xml" value="0.33" />
+        <entry key="..\:/Users/Vince/AndroidStudioProjects/oatsv5/app/src/main/res/layout/thesis_dialog_details.xml" value="0.33" />
+        <entry key="..\:/Users/Vince/AndroidStudioProjects/oatsv5/app/src/main/res/layout/thesis_files.xml" value="0.4663677130044843" />
         <entry key="..\:/Users/Vince/AndroidStudioProjects/oatsv5/app/src/main/res/layout/view_pager.xml" value="0.20516304347826086" />
         <entry key="..\:/Users/Vince/AndroidStudioProjects/oatsv5/app/src/main/res/menu/activity_main_drawer.xml" value="0.24259259259259258" />
         <entry key="..\:/Users/Vince/AndroidStudioProjects/oatsv5/app/src/main/res/menu/dasshboard.xml" value="0.24259259259259258" />

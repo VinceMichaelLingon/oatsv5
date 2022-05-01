@@ -25,4 +25,14 @@
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="fab_content_desc">fab_content_desc</string>
+
+    <string name="BASE_URL">http://192.168.100.141:8000/</string>
+
+    <string-array name="citation_format">
+        <item>SELECT CITATION FORMAT</item>
+        <item>MLA</item>
+        <item>APA</item>
+        <item>IEEE</item>
+
+    </string-array>
 </resources>

@@ -14,8 +14,9 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import com.example.oatsv5.Adapters.ThesisRecyclerAdapter;
-import com.example.oatsv5.Models.ThesesResult;
-import com.example.oatsv5.Models.ThesisJSONResponse;
+import com.example.oatsv5.Constants.Constants;
+import com.example.oatsv5.Models.Thesis.ThesesResult;
+import com.example.oatsv5.Models.Thesis.ThesisJSONResponse;
 import com.example.oatsv5.R;
 import com.example.oatsv5.RetrofitInterface;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
@@ -36,10 +37,12 @@ public class ThesisFragment extends Fragment {
     private Button button;
     private RecyclerView recyclerView;
     private View view;
+    String token;
     private SwipeRefreshLayout refreshLayout;
     List<ThesesResult> thesisList;
+//    List<ThesesResult.KeywordsResult> keywordsList;
     private TextView thesisFileResult;
-    private String BASE_URL = "http://192.168.100.141:8000/";
+//    private String BASE_URL = "http://192.168.100.141:8000/";
 
 
     @Override
@@ -69,6 +72,7 @@ public class ThesisFragment extends Fragment {
             @Override
             public void onRefresh() {
                 thesisList();
+                refreshLayout.setRefreshing(false);
             }
         });
 
@@ -84,9 +88,11 @@ public class ThesisFragment extends Fragment {
     private void thesisList() {
 
 
+
+
         //setting up the retrofit
         Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl(BASE_URL)
+                .baseUrl(Constants.BASE_URL)
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
 
@@ -105,7 +111,8 @@ public class ThesisFragment extends Fragment {
                 PutDataIntoRecyclerView(thesisList);
             }
 
-            @Override
+
+
             public void onFailure(Call<ThesisJSONResponse> call, Throwable t) {
 
 
@@ -117,6 +124,7 @@ public class ThesisFragment extends Fragment {
 //
 //
 //            @Override
+
 //            public void onResponse(Call<List<ThesesResult>> call, Response<List<ThesesResult>> response) {
 //                if(!response.isSuccessful()){
 //                    thesisFileResult.setText("Code:" + response.code());
@@ -151,7 +159,7 @@ public class ThesisFragment extends Fragment {
 //        }
 
     }
-        private void PutDataIntoRecyclerView (List < ThesesResult > thesisList) {
+        private void PutDataIntoRecyclerView(List<ThesesResult> thesisList) {
 
             ThesisRecyclerAdapter thesisRecyclerAdapter = new ThesisRecyclerAdapter(getContext(), thesisList);
             recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
